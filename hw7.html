@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">  
+		<style>
+				body {
+						font-size: 40px;
+				}
+				.hours {
+						color: #000;
+				}
+				.minutes {
+						color: grey;
+				}
+				.seconds {
+						color: lightgrey ;
+				}
+		</style>
+	</head>
+		<body>
+		<!-- 1. Создать функцию которая выводит время в html и обновляет значения каждую секунду. 
+		Время выводить в формате чч:мм:cc, при этом часы, минуты и секунды отобразить разными цветами.  -->
+		<p>текущее время: <span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span></p>
+
+		
+		</span>
+<!--     <span id="black"></span>:<span id="grey"></span>:<span id="lightgrey"></span> -->
+		
+
+		<script type="text/javascript">
+		var hh = document.querySelector('.hours');
+		var mm = document.querySelector('.minutes');
+		var ss = document.querySelector('.seconds');
+		
+
+		function clock() {
+			var d = new Date();
+			var hours = d.getHours();
+			var minutes = d.getMinutes();
+			var seconds = d.getSeconds();
+
+			if (hours <= 9) hours = "0" + hours;
+			if (minutes <= 9) minutes = "0" + minutes;
+			if (seconds <= 9) seconds = "0" + seconds;
+
+			hh.innerHTML = hours;
+			mm.innerHTML = minutes;
+			ss.innerHTML = seconds;
+		};
+
+		var timer = setInterval(function() {clock()}, 1000)
+</script>
+<!--     // 2. Создать объект «Товар» включающий:
+		// - свойства, такие как фото, артикул, описание и т.п.;
+		// - метод, которому при вызове передается id пустого div элемента и в этот html элемент данный 
+		// метод создаст и внесёт все необходимые html элементы, стили, и содержание для отображения 
+		// всей информации хранящихся в свойствах объекта о данном товаре. Дизайн оформления информации 
+		// в html о товаре – это ваше творчество.  -->
+
+	<div class="product"></div>
+	<script type="text/javascript">
+			var product = {
+				photo: 'img1.jpg',
+				article: '11.369.147',
+				description: 'The best priduct in the world',
+				price: '450 $'
+			}
+
+			product.kitKat = function() {
+				var productPlace = document.querySelector('.product');
+
+				var photo1 = document.createElement('div');
+				photo1.className = 'area';
+				productPlace.appendChild(photo1);
+
+				var photo2 = document.createElement('img');
+				photo1.appendChild(photo2);
+				photo2.src = product.photo;
+
+
+				var description = document.createElement('div');
+				productPlace.appendChild(description);
+				description.className = 'areaOfProduct';
+				description.innerHTML = product.description;
+						
+						
+				var article = document.createElement('div');
+				productPlace.appendChild(article);
+				article.className = 'areaOfProduct';
+				article.innerHTML = 'Артикул: ' + product.article;
+						
+						
+				var price = document.createElement('div');
+				productPlace.appendChild(price);
+				price.className = 'areaOfProduct';
+				price.innerHTML = 'Цена: ' + product.price;
+						
+				}
+
+				product.kitKat()
+			
+	</script>
+
+		</body>
+	</html>

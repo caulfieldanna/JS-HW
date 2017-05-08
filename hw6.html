@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="plotly-latest.min.js"></script>
+	<script type="text/javascript" src="hw6.js"></script>
+</head>
+<body>
+	<div id="placeholder" style="width: 480px; height: 400px;"></div>
+	<!-- 1 Подключить стороннюю библиотеку для построения графиков.
+	Построить график функции y = f(x):
+	y = 5/x, при x>=1;
+	y = x*x – 4*x, при x<1.
+	Шаг варьирования x равен 0.01 и интервал варьирования -5 ? x ? 5.
+	Расчёт функции y = f(x) реализовать в виде отдельной функции. -->
+<!-- 	<script type="text/javascript">
+		var line1 = {
+			x: [],
+			y: [],
+			type: 'scatter'
+		};
+		function calcY(x){
+			if( x >= 1 ){
+				var y = 5/x;
+			} else if ( x < 1 ) {
+				var y = x*x - 4*x; 
+			}; 
+			return y;
+		};
+		
+		for (var i = -5; i <= 5; i+=0.01)
+		{
+			line1.x.push(i);
+			line1.y.push(calcY(i));
+		};
+		var data = [line1];
+		Plotly.newPlot('placeholder', data);
+	</script> -->
+	
+<!-- 	2 Одномерным массивом задана доска 3 на 3 
+	var area = [ null, null, null, null, null, null, null, null, null ]
+	Необходимо сформировать игровое поле, состоящее из квадратов для крестиков-ноликов в HTML. 
+	При появлении в массиве 0-ля рисовать нолик , 1-цы крестик. 
+	Пример:  [ 1, null, 0, null, 1, null, null, null, null ] на поле 2-а крестика, и 1-н нолик.
+	Для вывода html поля использовать document.write(). Код генерации html поля 
+	вынести в отдельную функцию в отдельный подключаемый js модуль. -->
+	<div class="game-area">
+		<script type="text/javascript">
+			document.write(window.X0.gameAreaGenerator([1, 0, 1, null, null, 1, 0, null, 0]));
+		</script>
+	</div>
+
+	<script type="text/javascript">
+		array = [2,1,17,3,5,4,8,10,13,6];
+
+		console.log('array: ' + array);
+		console.log('min result: ' + window.arrayLib.min(array));
+		console.log('max result: ' + window.arrayLib.max(array));
+		console.log('mean result: ' + window.arrayLib.mean(array));
+		var b = window.arrayLib.clone(array)
+		b.push(5);
+		console.log('clone result.push(5): ' + b);
+		console.log('array (still the same): ' + array);
+
+
+	</script>
+
+</body>
+</html>

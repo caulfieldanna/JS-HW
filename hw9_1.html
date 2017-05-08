@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Product = function(options) {
+				this.name = options.name;
+				this.price = options.price;
+			};
+
+			var Basket = function(options) {
+				this._goods_ = options.goods || [];
+				this._count_ = this._goods_.length || 0;
+				this._total_ = this.getTotal();
+			};
+
+			Basket.prototype.getTotal = function() {
+				if (!this._total_) {
+					var total = 0;
+					for (var key in this._goods_) {
+						total += this._goods_[key].price;
+					};
+
+					this._total_ = total;
+					return total;
+				};
+				return this._total_;
+			};
+
+			Basket.prototype.addProduct = function(product) {
+				if (product instanceof Product) {
+					this._goods_.push(product);
+					this._total_ += product.price;
+					this._count_ = this._goods_.length;
+				};
+
+			};
+
+			Basket.prototype.getCount = function() {
+				return this._count_;
+			};
+
+
+		</script>
+
+		type to check 
+		<pre>
+		var p = new Product({name: 'Root', price: 450});
+		var b = new Basket ({goods: [p]});</pre>
+	</body>
+</html>
