@@ -1,0 +1,49 @@
+<html>
+<head>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<style>
+		#gameplace {
+			border: 2px solid grey;
+			border-radius: 10px;
+		}
+
+		#gameplace div {
+			box-sizing: border-box;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: 30px 30px;
+			transition: background-size .2s;
+		}
+
+		#gameplace div:hover {
+			background-size: 36px 36px;
+		}
+
+		.hover {
+			border: 2px solid yellow;
+			border-radius: 8px;
+		}
+
+		.choosen {
+			border: 2px solid red;
+			border-radius: 8px;
+		}
+
+		.info {
+			width: 480px;
+			text-align: right;
+			font-family: monospace;
+		}
+	</style>
+</head>
+<body>
+	<script src="js/myUtils.js"></script>
+	<div class="info">score: <span class="score"></span></div>
+	<div id = "gameplace"></div>
+	<script>
+		Match3.createGamePlace('gameplace', 10);
+	</script>
+</body>
+<footer>
+</footer>
+</html>
